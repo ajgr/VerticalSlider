@@ -6,7 +6,7 @@ http://bit.ly/2eLX9eY
 
 This project was done in Xcode 8.3.3 and tested under iOS 10.3.
 
-![Screen Shot](/Screenshot/1.png?raw=true "Screen Shot")
+![Screen Shot](/Screenshot/2.png?raw=true "Screen Shot")
 
 The MIT License (MIT) ================
 
