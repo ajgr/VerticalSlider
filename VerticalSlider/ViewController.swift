@@ -64,7 +64,6 @@ extension ViewController: VerticalSliderDelegate {
 	func valueDidChange(_ value: Double) {
 		sliderThree.text = String(format: "%.2f", value)
 	}
-
 }
 
 
