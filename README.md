@@ -3,6 +3,7 @@ A simple iOS app demonstrating several ways of implementing a vertical slider in
 This source code complements our blog post about implementing vertical sliders in iOS:
 http://bit.ly/2eLX9eY
 
+
 This project was done in Xcode 8.3.3 and tested under iOS 10.3.
 
 ![Screen Shot](/Screenshot/1.png?raw=true "Screen Shot")
