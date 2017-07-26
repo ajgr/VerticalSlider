@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  VerticalSlider
 //
-//  Created by Arthur Roolfs on 7/20/17.
+//  Created by ajgr on 7/20/17.
 //
 //
 

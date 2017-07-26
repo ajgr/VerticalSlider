@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  VerticalSlider
 //
-//  Created by Arthur Roolfs on 7/20/17.
+//  Created by ajgr on 7/20/17.
 //
 //
 
@@ -37,7 +37,7 @@ class ViewController: UIViewController {
 		super.viewDidLoad()
 		
 		// declare ourselves as VerticalSlider delegate
-		verticalSliderCtrl.delegate = self
+//		verticalSliderCtrl.delegate = self
 		
 		sliderOne.text = String(format: "%.2f", slider.value)
 		sliderTwo.text = String(format: "%.2f", subclassedSlider.value)
@@ -57,15 +57,11 @@ class ViewController: UIViewController {
 		sliderTwo.text = String(format: "%.2f", sender.value)
 	}
 	
-}
-
-extension ViewController: VerticalSliderDelegate {
-	
-	func valueDidChange(_ value: Double) {
-		sliderThree.text = String(format: "%.2f", value)
+	@IBAction func onSliderThree(_ sender: VerticalSlider) {
+		sliderThree.text = String(format: "%.2f", sender.value)
 	}
+	
 }
-
 
 
 

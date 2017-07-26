@@ -2,16 +2,11 @@
 //  VerticalSlider.swift
 //  VerticalSlider
 //
-//  Created by Arthur Roolfs on 7/20/17.
+//  Created by ajgr on 7/20/17.
 //
 //
 
 import UIKit
-
-protocol VerticalSliderDelegate: class {
-	func valueDidChange(_ value: Double)
-}
-
 
 @IBDesignable
 class VerticalSlider: UIControl {
@@ -37,7 +32,6 @@ class VerticalSlider: UIControl {
 			if value < minValue {
 				value = minValue
 			}
-			delegate?.valueDidChange(Double(value))
 			updateThumbRect()
 		}
 	}
@@ -55,8 +49,6 @@ class VerticalSlider: UIControl {
 	
 	var thumbRect: CGRect!
 	var isMoving = false
-
-	weak var delegate: VerticalSliderDelegate?
 	
 	// MARK: - Init
 	override init(frame: CGRect) {
@@ -80,6 +72,11 @@ class VerticalSlider: UIControl {
 		return true
 	}
 
+	override func prepareForInterfaceBuilder() {
+		super.prepareForInterfaceBuilder()
+		updateThumbRect()
+	}
+	
 	override func draw(_ rect: CGRect) {
 		
 		let context = UIGraphicsGetCurrentContext()
@@ -110,6 +107,7 @@ class VerticalSlider: UIControl {
 	
 // MARK: - Standard Control Overrides
 	override func beginTracking(_ touch: UITouch, with event: UIEvent?) -> Bool {
+		super.beginTracking(touch, with: event)
 		
 		if thumbRect.contains(touch.location(in: self)) {
 			isMoving = true
@@ -118,6 +116,7 @@ class VerticalSlider: UIControl {
 	}
 	
 	override func continueTracking(_ touch: UITouch, with event: UIEvent?) -> Bool {
+		super.continueTracking(touch, with: event)
 		
 		let location = touch.location(in: self)
 		if isMoving {
@@ -129,19 +128,19 @@ class VerticalSlider: UIControl {
 					setNeedsDisplay()
 				}
 		}
+
+		self.sendActions(for: UIControlEvents.valueChanged)
+
 		return true
 	}
 	
 	override func endTracking(_ touch: UITouch?, with event: UIEvent?) {
+		super.endTracking(touch, with: event)
+		
 		isMoving = false
 	}
 	
 	// MARK: - Utility
-	override func prepareForInterfaceBuilder() {
-		super.prepareForInterfaceBuilder()
-		updateThumbRect()
-	}
-	
 	func valueFromY(_ y: CGFloat) -> CGFloat {
 		let yOffset = bounds.height - thumbOffset - y
 		return (yOffset * maxValue) / trackLength
