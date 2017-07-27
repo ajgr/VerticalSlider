@@ -35,10 +35,7 @@ class ViewController: UIViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		
-		// declare ourselves as VerticalSlider delegate
-//		verticalSliderCtrl.delegate = self
-		
+				
 		sliderOne.text = String(format: "%.2f", slider.value)
 		sliderTwo.text = String(format: "%.2f", subclassedSlider.value)
 		sliderThree.text = String(format: "%.2f", verticalSliderCtrl.value)
