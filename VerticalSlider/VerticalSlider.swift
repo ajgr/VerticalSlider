@@ -129,7 +129,7 @@ class VerticalSlider: UIControl {
 				}
 		}
 
-		self.sendActions(for: UIControlEvents.valueChanged)
+		self.sendActions(for: UIControl.Event.valueChanged)
 
 		return true
 	}
